@@ -1,6 +1,6 @@
 class Solution:
-
-    nums = [3,0,-2,-1,1,2]
+    # Test case area
+    nums = [3, 0, -2, -1, 1, 2]
 
     def threeSum(nums):
         ans = []
@@ -14,8 +14,8 @@ class Solution:
                 continue
             cnt += 1
             left = idx + 1
-            right = nums_len -1
-            while left < right:                
+            right = nums_len - 1
+            while left < right:
                 if i + sorted_nums[left] + sorted_nums[right] > 0:
                     right -= 1
                 elif i + sorted_nums[left] + sorted_nums[right] < 0:
@@ -23,10 +23,12 @@ class Solution:
                 else:
                     ans.append([i, sorted_nums[left], sorted_nums[right]])
                     left += 1
-                    while sorted_nums[left] == sorted_nums[left-1] and left < right:
+                    while sorted_nums[left] == sorted_nums[left-1] \
+                            and left < right:
                         left += 1
                     right -= 1
-                    while sorted_nums[right] == sorted_nums[right+1] and left < right:
+                    while sorted_nums[right] == sorted_nums[right+1] \
+                            and left < right:
                         right -= 1
         return ans
     threeSum(nums)
